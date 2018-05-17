@@ -1,0 +1,6 @@
+.bundle
+vendor/bundle
+*.swp
+*.swo
+.ruby-version
+.env
