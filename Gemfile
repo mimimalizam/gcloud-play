@@ -1,3 +1,4 @@
 source "https://rubygems.org"
 
-gem "google-api-client"
+gem "google-cloud-storage"
+gem "require_all"
