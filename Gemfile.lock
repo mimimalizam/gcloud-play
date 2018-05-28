@@ -50,6 +50,7 @@ GEM
       declarative (< 0.1.0)
       declarative-option (< 0.2.0)
       uber (< 0.2.0)
+    require_all (2.0.0)
     retriable (3.1.1)
     signet (0.8.1)
       addressable (~> 2.3)
@@ -63,6 +64,7 @@ PLATFORMS
 
 DEPENDENCIES
   google-cloud-storage
+  require_all
 
 BUNDLED WITH
    1.16.1
