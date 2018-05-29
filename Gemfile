@@ -6,6 +6,4 @@ gem "dotenv"
 
 group :test, :development do
   gem "rspec"
-  gem "vcr"
-  gem "webmock"
 end
