@@ -11,7 +11,8 @@ blocks:
         - name: bundle install
           commands:
             - echo "Here"
-            - artifact pull project dpl_conf
+            - touch dpl_conf
+            - artifact push project dpl_conf
             - echo "Test"
 
 promotions:
