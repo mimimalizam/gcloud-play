@@ -12,4 +12,6 @@ blocks:
         commands:
           - artifact pull project dpl_conf.sh
           - cat dpl_conf.sh
+          - source dpl_conf.sh
+          - echo "$CRON_SPEC"
           - artifact yank project dpl_conf.sh
