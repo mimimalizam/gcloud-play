@@ -1,0 +1,28 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: artifacthub-usage
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: artifacthub-usage
+      labels:
+        app: artifacthub-usage
+    spec:
+      containers:
+        - name: artifacthub-usage
+          image: us.gcr.io/semaphore2-prod/artifacthub-usage:zxxxx
+          imagePullPolicy: Always
+          ports:
+            - name: grpc-port
+              containerPort: 50051
+          env:
+            - name: GOOGLE_APPLICATION_CREDENTIALS
+              value: "/var/secrets/semaphore2-prod-artifacts.json"
+            - name: CRON_SPEC
+              value: "52 * * * *"
+            - name: ARTIFACTHUB_GRPC_ENDPOINT
+              value: "artifacthub-internal-grpc-api:50051"
+            - name: PROJECT_GRPC_ENDPOINT
+              value: "semaphore-project-api:50051"
