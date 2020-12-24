@@ -16,4 +16,6 @@ blocks:
           - echo "$CRON_SPEC"
           - checkout
           - cat k8s-dpl.yml
+          - sed -i "/ARTIFACTHUB_GRPC_ENDPOINT/{n;s/value:.*/value: \"$CRON_SPEC\"/}" k8s-dpl.yml
+          - cat k8s-dpl.yml
           - artifact yank project dpl_conf.sh

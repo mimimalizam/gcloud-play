@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-export CRON_SPEC="52 * * * *"
+export CRON_SPEC="19 * * * *"
