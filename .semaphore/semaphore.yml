@@ -12,6 +12,7 @@ blocks:
           commands:
             - echo "Here"
             - artifact pull project dpl_conf
+            - echo "Test"
 
 promotions:
   - name: ArtDpl
