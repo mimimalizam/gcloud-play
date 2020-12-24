@@ -1,0 +1,18 @@
+version: v1.0
+name: Build
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Bundle install
+    task:
+      jobs:
+        - name: bundle install
+          commands:
+            - echo "Here"
+            - artifact pull project dpl_conf
+
+promotions:
+  - name: ArtDpl
+    pipeline_file: art_dpl.yml
