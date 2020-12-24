@@ -1,0 +1,21 @@
+version: "v1.0"
+name: Art Dpl
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: "Deploy"
+    task:
+      jobs:
+      - name: Run
+        commands:
+          - artifact pull project dpl_conf.sh
+          - cat dpl_conf.sh
+          - source dpl_conf.sh
+          - echo "$CRON_SPEC"
+          - checkout
+          - cat k8s_dpl.yml
+          - sed -i "/ARTIFACTHUB_GRPC_ENDPOINT/{n;s/value:.*/value: \"$CRON_SPEC\"/}" k8s_dpl.yml
+          - cat k8s_dpl.yml
+          - artifact yank project dpl_conf.sh
