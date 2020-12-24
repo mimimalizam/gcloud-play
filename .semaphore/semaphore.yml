@@ -5,14 +5,15 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: Bundle install
+  - name: Setup artifacts
     task:
       jobs:
-        - name: bundle install
+        - name: Artifacts
           commands:
-            - echo "Here"
-            - touch dpl_conf
-            - artifact push project dpl_conf
+            - checkout
+            - source dpl_conf.sh
+            - artifact push project dpl_conf.sh
+            - echo $CRON_SPEC
             - echo "Test"
 
 promotions:

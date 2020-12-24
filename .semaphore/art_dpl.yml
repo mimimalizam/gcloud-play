@@ -10,6 +10,6 @@ blocks:
       jobs:
       - name: Run
         commands:
-          - artifact pull project dpl_conf
-          - cat dpl_conf
-          - artifact yank project dpl_conf
+          - artifact pull project dpl_conf.sh
+          - cat dpl_conf.sh
+          - artifact yank project dpl_conf.sh
