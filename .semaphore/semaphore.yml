@@ -1,0 +1,23 @@
+version: v1.0
+name: Build
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Setup artifacts
+    task:
+      jobs:
+        - name: Artifacts
+          commands:
+            - checkout
+            - source dpl_conf.sh
+            - artifact push project dpl_conf.sh
+            - echo "$CRON_SPEC"
+            - echo "Test"
+
+promotions:
+  - name: ArtDpl
+    pipeline_file: art_dpl.yml
+    auto_promote_on:
+      - result: passed

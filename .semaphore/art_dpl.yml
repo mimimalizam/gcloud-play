@@ -1,0 +1,15 @@
+version: "v1.0"
+name: Art Dpl
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: "Deploy"
+    task:
+      jobs:
+      - name: Run
+        commands:
+          - artifact pull project dpl_conf.sh
+          - cat dpl_conf.sh
+          - artifact yank project dpl_conf.sh
